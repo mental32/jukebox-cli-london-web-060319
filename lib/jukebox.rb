@@ -25,10 +25,10 @@ def play(songs)
 
     if s
       puts s.pop
-    else
-      puts 'Invalid input, please try again'
     end
   end
+
+  puts 'Invalid input, please try again'
 end
 
 def exit_jukebox
