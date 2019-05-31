@@ -36,12 +36,14 @@ def exit_jukebox
 end 
 
 def help
-  puts {
+  commands = {
     'help' => 'displays this message',
     'list' => 'displays a list of songs you can play',
     'play' => 'play a song',
     'exit' => 'stops the program'
-  }.map { |k, v| " - #{k}\t#{v.first}" }.join '\n'
+  }
+
+  puts commands.map { |k, v| " - #{k}\t#{v.first}" }.join '\n'
 end
 
 def run(songs)
