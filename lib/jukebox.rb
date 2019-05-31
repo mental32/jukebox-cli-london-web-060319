@@ -10,10 +10,6 @@ songs = [
   "Amos Lee - Keep It Loose, Keep It Tight"
 ]
 
-def help(*_)
-  puts COMMANDS.map { |k, v| " - #{k}\t#{v.first}" }.join '\n'
-end
-
 def list(songs)
   puts songs.each_with_index { |s, i| "#{i + 1} #{s}" }.join('\n')
 end
@@ -38,6 +34,10 @@ end
 def exit_jukebox(*_)
   puts 'Goodbye'
 end 
+
+def help(*_)
+  puts COMMANDS.map { |k, v| " - #{k}\t#{v.first}" }.join '\n'
+end
 
 COMMANDS = {
   'help' => ['displays this message', help],
