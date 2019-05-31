@@ -31,28 +31,31 @@ def play(songs)
   end
 end
 
-def exit_jukebox(*_)
+def exit_jukebox
   puts 'Goodbye'
 end 
 
-def help(*_)
-  puts COMMANDS.map { |k, v| " - #{k}\t#{v.first}" }.join '\n'
+def help
+  puts {
+    'help' => 'displays this message',
+    'list' => 'displays a list of songs you can play',
+    'play' => 'play a song',
+    'exit' => 'stops the program'
+  }.map { |k, v| " - #{k}\t#{v.first}" }.join '\n'
 end
-
-COMMANDS = {
-  'help' => ['displays this message', help],
-  'list' => ['displays a list of songs you can play', list],
-  'play' => ['play a song', play],
-  'exit' => ['stop the program', exit_jukebox]
-}
 
 def run(songs)
   loop do
     puts 'Please enter a command:'
-    reponse = gets.chomp
 
-    if COMMANDS.include? reponse
-      COMMANDS[reponse].last.call songs
+    case gets.chomp
+    when 'list'
+      list songs
+    when 'play'
+      play songs
+    when 'exit'
+      exit_jukebox
+      return
     else
       help
     end
