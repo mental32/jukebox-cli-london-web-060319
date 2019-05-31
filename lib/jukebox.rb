@@ -19,7 +19,7 @@ def play(songs)
   target = gets.chomp
 
   if target.to_i.to_s == target
-    song = songs[target.to_i - 1]
+    puts songs[target.to_i - 1]
   else
     s = songs.select { |v| v.include? target }
 
