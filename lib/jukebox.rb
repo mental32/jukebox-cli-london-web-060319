@@ -43,7 +43,7 @@ def help
     'exit' => 'stops the program'
   }
 
-  puts commands.map { |k, v| " - #{k}\t#{v.first}" }.join '\n'
+  puts commands.map { |k, v| " - #{k}\t#{v}" }.join '\n'
 end
 
 def run(songs)
